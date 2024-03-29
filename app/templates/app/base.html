@@ -1,0 +1,104 @@
+{% load cart_tags %} {% load static %}
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- linkタグでbootstrapのcssファイルを読み込む -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+    <!-- linkタグでDataTableのcssファイルを読み込む -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11/datatables.min.css"/>
+    <!-- bootstrapのjavascrit読み込み-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+    <!-- DataTablesのjavascrit読み込み-->
+    <script src="https://cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11/datatables.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <title>CAMP GOODS EC SITE</title>
+  </head>
+
+  <body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-2">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="form-inline my-2 my-lg-0">
+                <a href="/">
+                    <img  id="logo" src="{{ MEDIA_URL }}images/logo_img.png"/>
+                </a>
+            </div>
+            <div class="container">
+                <ul class="navbar-nav form-inline ml-auto">
+                    <div class="nav-text">
+                        <li class="nav-item">
+                            <a class="nav-link " href="/">HOME</a>
+                        </li>
+                    </div>
+                    {% if user.is_authenticated %}
+                    <div class="nav-text2">
+                        <li class="nav-item nav-text">
+                            <a class="nav-link" href="{% url 'account_logout' %}">LOGOUT</a>
+                        </li>
+                    </div>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'profile' %}">
+                                <img  id="cart-icon" src="{{ MEDIA_URL }}images/person.png"/>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'order' %}">
+                                <img  id="cart-icon" src="{{ MEDIA_URL }}images/cart2.png"/>
+                            <span class="badge badge-pill badge-warning">
+                                {{ request.user|itemCount }}
+                            </span>
+                            </a>
+                        </li>
+                    {% else %}
+                    <div class="nav-text">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'account_signup' %}">SIGNUP</a>
+                        </li>
+                    </div>
+                    <div class="nav-text">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'account_login' %}">LOGIN</a>
+                        </li>
+                    </div>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+      <div class="container">{% block content %} {% endblock %}</div>
+    </main>
+
+    <footer class="footer">
+      <p class="m-0 mr-auto ml-auto">
+        © 2024 CAMP GOODS EC SITE. All Rights Reserved.
+      </p>
+    </footer>
+
+    <!-- Databableの定義-->
+    <script>
+        jQuery(function($){
+            // デフォルトの設定を変更
+            $.extend( $.fn.dataTable.defaults, {
+                language: {
+                    url: "http://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Japanese.json"
+                    }
+                    });
+            $("#item_list").DataTable({
+                "searching": true,     //検索機能
+                "paging":   true,      //ページング機能
+                "ordering": true,      //ソート機能
+                "lengthChange": true,  //件数切り替え機能
+                }).columns.adjust().draw();
+                });
+    </script>
+
+    {% block extra_js %} {% endblock %}
+  </body>
+</html>

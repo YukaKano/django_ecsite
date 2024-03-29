@@ -1,0 +1,211 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* base */
+
+body {
+  background: #f1f1f1;
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+  background-image: url("/media/images/index_img3.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+}
+  
+main {
+  flex: 1;
+  margin-top: 100px;
+}
+
+header {
+  display: flex;
+  width: 100%;
+  height: 60px;
+  align-items: center;
+  position:fixed;
+  z-index:10000;
+}
+
+.navbar{
+  width: 100%;
+}
+
+#logo{
+  width: 100px;
+  display: inline-block;
+  margin-left: 10px;
+  margin-top: 30px;
+}
+
+#cart-icon{
+  width: 50px;
+  display: inline-block;
+  /* margin-left: 10px; */
+  margin-top: 30px;
+}
+
+.nav-text{
+  margin-top: 40px;
+}
+
+.nav-text2{
+  margin-top: 0px;
+}
+
+.footer {
+  font-size: small;
+  text-align: center;
+  display: flex;
+  width: 100%;
+  height: 30px;
+  bottom: 0;
+  color: rgb(255, 255, 255);
+  align-items: center;
+  position: fixed;
+}
+
+/* index */
+
+b {
+  font-size: 14px;
+}
+
+.item_breadcrumb{
+  z-index:5000;
+}
+
+.col-lg-12{
+  margin-top: 30px;
+  margin-bottom: 50px;
+}   /* (index, product) */
+
+.box-element{
+  box-shadow:hsl(0, 0%, 80%) 0 0 16px;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 10px;
+  opacity:  0.9;
+}
+
+.btn{
+  border-radius: 0;
+}
+
+.card-header {
+  text-align: left;
+}
+
+table {
+  border-spacing: none;
+}
+
+/* product */
+
+.product img {
+  height: 350px;
+  object-fit: contain;
+}
+
+#item_detail{
+  width: 100%;
+}
+
+.box-element2{
+  box-shadow:hsl(0, 0%, 80%) 0 0 16px;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+/* order */
+
+.order img {
+  height: 100px;
+  object-fit: contain;
+}
+
+/* account */
+
+.card-profile {
+  width: 700px;
+  border: 0;
+  border-radius: 1rem;
+  box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.1);
+}
+
+.button {
+  width: 150px;
+}
+
+.btn {
+  font-size: 80%;
+  border-radius: 5rem;
+  font-weight: bold;
+}
+
+.profile_table {
+  width: 100%;
+  border: 1px solid #d1dbeb;
+  border-radius: 8px;
+  border-collapse: separate;
+  overflow: hidden;
+}
+
+.profile_table .header {
+  width: 200px;
+  padding: 16px 24px;
+  text-align: left;
+  background: #f1f5fa;
+}
+
+.profile_table .data {
+  padding: 16px 24px;
+}
+
+.form_wrap {
+  display: grid;
+  gap: 16px;
+}
+
+.form_wrap-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.form-control:focus {
+  box-shadow: none;
+}
+
+.card-auth {
+  width: 400px;
+  border: 0;
+  border-radius: 1rem;
+  box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+}
+
+.card-body {
+  padding: 2rem;
+}   /* (accounts, index, product, order) */
+
+.form-auth {
+  width: 100%;
+}
+
+.form-label-group {
+  margin-bottom: 1rem;
+}
+
+.form-label-group input {
+  border-radius: 2rem;
+}
